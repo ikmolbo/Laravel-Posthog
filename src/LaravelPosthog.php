@@ -19,7 +19,7 @@ class LaravelPosthog
     public function __construct()
     {
         $this->sessionId = Auth::user()
-            ? config('posthog.user_prefix', 'user').':'.Auth::user()->id
+            ? Auth::user()->email
             : sha1(session()->getId());
     }
 
